@@ -1,0 +1,12 @@
+[Unit]
+Description=une maj via pacman est elle presente ?
+# verification par : systemctl list-timers
+
+[Timer]
+Unit=pacman-notify.service
+#OnCalendar=*-*-* *:02:00 toutes les 2 minutes
+OnBootSec=6min
+OnUnitActiveSec=90min
+
+[Install]
+WantedBy=timers.target

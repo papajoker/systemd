@@ -1,0 +1,20 @@
+[Unit]
+Description=Notifier les maj pour ma Manjaro/Arch
+#After=pacman-sync.service
+Wants=pacman-notify.timer
+
+[Service]
+#User=patrick # si service pas dans "user"
+Type=oneshot
+ExecStart=/bin/bash /home/patrick/.local/bin/pacman-notify.sh
+#ExecStart=/bin/bash /usr/local/bin/pacman-notify
+
+[Install]
+WantedBy=graphical-target 
+
+
+# systemctl --user daemon-reload 
+# systemctl --user start pacman-notify.service
+
+# systemctl --user enable pacman-notify.timer
+# systemctl --user list-timers
