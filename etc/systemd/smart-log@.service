@@ -1,0 +1,10 @@
+[Unit]
+Description=vérifier les valeurs SMART du disque dur %i
+#Wants=smart-log.timer
+
+[Service]
+User=root
+ExecStart=/usr/local/bin/smart-log.sh %i
+
+[Install]
+WantedBy=multi-user-target 

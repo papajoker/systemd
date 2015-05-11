@@ -1,0 +1,13 @@
+[Unit]
+Description=on regarde les valeurs SMART de %i tous les 4 jours
+
+[Timer]
+Unit=smart-log@%i.service
+OnBootSec=19min
+OnUnitActiveSec=4d
+
+[Install]
+WantedBy=timers.target
+
+# systemctl daemon-reload
+# verification par : systemctl list-timers
