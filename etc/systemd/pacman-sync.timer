@@ -1,0 +1,14 @@
+[Unit]
+Description=on lance a heure fixe la synchronisation aux dépots
+# verification par : systemctl list-timers
+
+[Timer]
+Unit=pacman-sync.service
+#OnCalendar=*-*-* *:02:00 toutes les 2 minutes
+# lance chaque heure:  *-*-* *:00:00
+#OnCalendar=*-*-* 11:45:00 #jounalier a heure fixe
+OnBootSec=2min
+OnUnitActiveSec=2h
+
+[Install]
+WantedBy=timers.target

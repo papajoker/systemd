@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+# script pour vérifier si une mise à jour de Manjaro/Arch est disponible
+#export XAUTHORITY=/home/patrick/.Xauthority
+export DISPLAY=:0.0
+
+systeme=$(uname -n)
+# lecture pacman ...
+nb=`pacman -Qu |wc -l`
+#notify-send "pacman-notify service" -t 1000 --icon=dialog-information 
+if [ $nb -gt 0 ]; then
+    msg="${nb} paquets disponibles sur ${systeme}"
+    notify-send "$msg" -t 5000 -i archlinux-logo 
+    logger -p daemon.notice "$msg"
+    #systemctl stop pacman-notify.timer
+fi
+
+
+

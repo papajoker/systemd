@@ -1,0 +1,10 @@
+[Unit]
+Description=synchroniser les depots pacman
+Wants=pacman-sync.timer
+
+[Service]
+User=root
+ExecStart=/usr/bin/pacman -Sy
+
+[Install]
+WantedBy=multi-user-target 
