@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+duree=${2-8} #[ -z "$duree" ] && duree=8
+(echo "$1"; sleep $duree) | dzen2 -h 70 -fg '#cc0000' -fn lime
+logger -p user.notice "[flash] : [$duree] : $1"
