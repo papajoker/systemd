@@ -1,0 +1,17 @@
+[Unit]
+Description=Notifier si la température d'un cpu dépasse %i°C
+
+[Service]
+Type=oneshot
+ExecStart=/bin/bash /home/patrick/.local/bin/temperatures-alert.sh %i
+#ExecStart=/bin/bash /usr/local/bin/temperatures-alert.sh %i
+
+[Install]
+WantedBy=graphical-target 
+
+
+# systemctl --user daemon-reload 
+# systemctl --user start temp-notify@100.service
+
+# systemctl --user enable temp-notify@100.timer
+# systemctl --user list-timers

@@ -1,0 +1,14 @@
+[Unit]
+Description=un cpu chauffe t-il trop ? au dessus de %i°C ?
+# verification par : systemctl list-timers
+
+[Timer]
+Unit=temp-notify@%i.service
+OnBootSec=41min
+OnUnitActiveSec=95min
+
+[Install]
+WantedBy=timers.target
+
+# systemctl --user enable temp-notify@100.timer
+# systemctl --user list-timers
